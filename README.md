@@ -1,9 +1,6 @@
-# A Full Screen Camera App written in Swift
+# Buliding a custom camera in Swift for scanning bank check.
 
-This is a demo app showing you how to use AVFoundation to build a full-screen camera app in iOS.
+Intern stuff
 
-![](http://www.appcoda.com/wp-content/uploads/2017/05/Screenshot-1.png)
-
-For the full tutorial, you can refer to this link:
-
+Partial credit to "how to build a full screen camera App written in Swift
 http://www.appcoda.com/avfoundation-guide/
