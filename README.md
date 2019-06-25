@@ -2,5 +2,5 @@
 
 Intern stuff
 
-Partial credit to "how to build a full screen camera App written in Swift
+Partial credit to "how to build a full screen camera App written in Swift"
 http://www.appcoda.com/avfoundation-guide/
