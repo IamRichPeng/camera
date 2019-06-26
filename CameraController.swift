@@ -45,9 +45,6 @@ extension CameraController {
             guard !cameras.isEmpty else { throw CameraControllerError.noCamerasAvailable }
             
             for camera in cameras {
-//                if camera.position == .front {
-//                    self.frontCamera = camera
-//                }
                 
                 if camera.position == .back {
                     self.rearCamera = camera
@@ -87,7 +84,8 @@ extension CameraController {
             captureSession.startRunning()
         }
         
-        // catch error if necessary from"prepare"
+        
+        // set up an asynchronously executing block that calls the four functions, catch error if necessary from"prepare". Then calls the completion handler
         DispatchQueue(label: "prepare").async {
             do {
                 createCaptureSession()
@@ -116,8 +114,7 @@ extension CameraController {
         guard let captureSession = self.captureSession, captureSession.isRunning else { throw CameraControllerError.captureSessionIsMissing }
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        self.previewLayer?.connection?.videoOrientation = .portrait
+ //       self.previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
         
         view.layer.insertSublayer(self.previewLayer!, at: 0)
         self.previewLayer?.frame = view.frame
@@ -137,7 +134,7 @@ extension CameraController {
 
 }
 
-
+//extend CameraController to conform to AVCapturePhotoCaptureDelegate:
 extension CameraController: AVCapturePhotoCaptureDelegate {
 
     
@@ -152,9 +149,7 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
         else {
             self.photoCaptureCompletionBlock?(nil, CameraControllerError.unknown)
         }
-
     }
-    
 }
 
 extension CameraController {
